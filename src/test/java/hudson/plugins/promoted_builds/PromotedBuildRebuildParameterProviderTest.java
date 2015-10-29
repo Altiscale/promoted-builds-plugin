@@ -51,7 +51,7 @@ public class PromotedBuildRebuildParameterProviderTest {
         JobPropertyImpl promotion = new JobPropertyImpl(p1);
         p1.addProperty(promotion);
         PromotionProcess proc = promotion.addProcess("promo");
-        proc.conditions.add(new SelfPromotionCondition(false));
+        proc.conditions.add(new SelfPromotionCondition(false, false));
 
         // build it
         FreeStyleBuild b1 = j.assertBuildStatusSuccess(p1.scheduleBuild2(0));

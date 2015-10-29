@@ -27,10 +27,10 @@ public class SelfPromotionTest extends HudsonTestCase {
         p.addProperty(promotion);
 
         PromotionProcess promo1 = promotion.addProcess("promo1");
-        promo1.conditions.add(new SelfPromotionCondition(false));
+        promo1.conditions.add(new SelfPromotionCondition(false, false));
 
         PromotionProcess promo2 = promotion.addProcess("promo2");
-        promo2.conditions.add(new SelfPromotionCondition(false));
+        promo2.conditions.add(new SelfPromotionCondition(false, false));
 
         // ensure that the data survives the roundtrip
         configRoundtrip(p);
@@ -65,10 +65,10 @@ public class SelfPromotionTest extends HudsonTestCase {
         p.addProperty(promotion);
 
         PromotionProcess promo1 = promotion.addProcess("promo1");
-        promo1.conditions.add(new SelfPromotionCondition(false));
+        promo1.conditions.add(new SelfPromotionCondition(false, false));
 
         PromotionProcess promo2 = promotion.addProcess("promo2");
-        promo2.conditions.add(new SelfPromotionCondition(true));
+        promo2.conditions.add(new SelfPromotionCondition(true, false));
 
         // ensure that the data survives the roundtrip
         configRoundtrip(p);
@@ -104,10 +104,10 @@ public class SelfPromotionTest extends HudsonTestCase {
         p.addProperty(promotion);
 
         PromotionProcess promo1 = promotion.addProcess("promo1");
-        promo1.conditions.add(new SelfPromotionCondition(false));
+        promo1.conditions.add(new SelfPromotionCondition(false, false));
 
         PromotionProcess promo2 = promotion.addProcess("promo2");
-        promo2.conditions.add(new SelfPromotionCondition(true));
+        promo2.conditions.add(new SelfPromotionCondition(true, false));
 
         // ensure that the data survives the roundtrip
         configRoundtrip(p);
@@ -145,7 +145,7 @@ public class SelfPromotionTest extends HudsonTestCase {
         p.addProperty(promotion);
 
         PromotionProcess promo1 = promotion.addProcess("promo1");
-        promo1.conditions.add(new SelfPromotionCondition(false));
+        promo1.conditions.add(new SelfPromotionCondition(false, false));
 
         // ensure that the data survives the roundtrip
         configRoundtrip(p);

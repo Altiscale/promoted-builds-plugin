@@ -56,7 +56,7 @@ public class RemoteApiTest {
         JobPropertyImpl promotion = new JobPropertyImpl(p);
         p.addProperty(promotion);
         PromotionProcess proc = promotion.addProcess("promo");
-        proc.conditions.add(new SelfPromotionCondition(true));
+        proc.conditions.add(new SelfPromotionCondition(true, false));
         JenkinsRule.WebClient wc = r.createWebClient();
         String xml = wc.goToXml("job/p/promotion/process/promo/config.xml").getContent();
         assertTrue(xml, xml.contains("SelfPromotionCondition"));

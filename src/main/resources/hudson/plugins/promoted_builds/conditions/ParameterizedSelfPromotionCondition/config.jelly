@@ -3,6 +3,10 @@
     <f:checkbox name="promotion.self.evenIfUnstable" checked="${instance.evenIfUnstable}"/>
     <label class="attach-previous">${%Trigger even if the build is unstable}</label>
   </f:entry>
+  <f:entry>
+    <f:checkbox name="promotion.self.evenIfFailed" checked="${instance.evenIfFailed}"/>
+    <label class="attach-previous">${%Trigger even if the build is failed}</label>
+  </f:entry>
   <f:entry title="Parameter Name">
     <f:textbox name="promotion.self.parameterName" value="${instance.parameterName}"/>
   </f:entry>

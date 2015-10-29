@@ -45,21 +45,27 @@ import java.io.IOException;
  */
 public class SelfPromotionCondition extends PromotionCondition {
     private final boolean evenIfUnstable;
+    private final boolean evenIfFailed;
 
     @DataBoundConstructor
-    public SelfPromotionCondition(boolean evenIfUnstable) {
+    public SelfPromotionCondition(boolean evenIfUnstable, boolean evenIfFailed) {
         this.evenIfUnstable = evenIfUnstable;
+        this.evenIfFailed = evenIfFailed;
     }
 
     public boolean isEvenIfUnstable() {
         return evenIfUnstable;
     }
-
+    
+    public boolean isEvenIfFailed() {
+        return evenIfFailed;
+    }
+    
     @Override
     public PromotionBadge isMet(PromotionProcess promotionProcess, AbstractBuild<?, ?> build) {
         if (!build.isBuilding()) {
             Result r = build.getResult();
-            if ((r == Result.SUCCESS) || (evenIfUnstable && r == Result.UNSTABLE)) {
+            if ((r == Result.SUCCESS) || (evenIfUnstable && r == Result.UNSTABLE) || (evenIfFailed && r == Result.FAILURE)) {
                 return new SelfPromotionBadge();
             }
         }
